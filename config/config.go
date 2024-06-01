@@ -1,6 +1,6 @@
 package config
 
-import "fmt"
+import ("fmt")
 
 type Config struct {
 	DbUser		string

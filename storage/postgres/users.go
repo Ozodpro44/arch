@@ -22,7 +22,7 @@ func (u *UserRepo) GetUserByUsername(ctx context.Context, username string) (mode
 	query := "SELECT * FROM users WHERE username=$1"
 	err := u.db.QueryRow(ctx, query, username).Scan(&user.User_id, &user.User_name, &user.Date, &user.Gmail, &user.Create_at)
 	if err != nil {
-		log.Println("err on GetUsersByID ", err)
+		log.Println("err on GetUsersByUsername ", err)
 		return user, err
 	}
 

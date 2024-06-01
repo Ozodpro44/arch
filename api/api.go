@@ -16,8 +16,8 @@ func Api(UserRepo postgres.UserRepo){
 		1.CreateUser
 		2.UpdateUser
 		3.Delete User
-		4.Get All users
-		5.Get user By Username
+		4.Get user By Username
+		5.Get All users
 		0.Exit
 		`)
 		fmt.Scanln(&x)
@@ -30,9 +30,9 @@ func Api(UserRepo postgres.UserRepo){
 		case 3:
 			h.DeleteUser(UserRepo)
 		case 4:
-			h.GetAllUSers(UserRepo)
-		case 5:
 			h.GetUserByUsername(UserRepo)
+		case 5:
+			h.GetAllUSers(UserRepo)
 		case 0:
 			return
 		}

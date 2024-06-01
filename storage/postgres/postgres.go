@@ -8,18 +8,17 @@ import (
 	"github.com/jackc/pgx/v5"
 )
 
+var ctx = context.Background()
 
-var ctx =context.Background()
+func Conn(cfg config.Config) (*pgx.Conn, error) {
 
-func Conn(cfg config.Config )(*pgx.Conn,error) {
-
-	dbUrl:=fmt.Sprintf("postgres://%s:%s@%s:%d/%s",
+	dbUrl := fmt.Sprintf("postgres://%s:%s@%s:%d/%s",
 		cfg.DbUser,
 		cfg.DbPassword,
 		cfg.DbHost,
 		cfg.DbPort,
 		cfg.DbName,
-		)
-	return pgx.Connect(ctx,dbUrl)
-	
+	)
+	return pgx.Connect(ctx, dbUrl)
+
 }

@@ -6,12 +6,12 @@ import (
 	"fmt"
 )
 
-func Api(UserRepo postgres.UserRepo){
+func Api(UserRepo postgres.UserRepo) {
 
-	h:=handlers.NewHandlers(UserRepo)
-	x:=-1 
+	h := handlers.NewHandlers(UserRepo)
+	x := -1
 
-	for x!=0{
+	for x != 0 {
 		fmt.Println(`
 		1.CreateUser
 		2.UpdateUser
@@ -22,7 +22,7 @@ func Api(UserRepo postgres.UserRepo){
 		`)
 		fmt.Scanln(&x)
 
-		switch x{
+		switch x {
 		case 1:
 			h.CreateUser(UserRepo)
 		case 2:

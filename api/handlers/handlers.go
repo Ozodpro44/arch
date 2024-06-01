@@ -106,9 +106,9 @@ func (h *Handlers) GetAllUSers(UserRepo postgres.UserRepo) {
 	}
 
 	fmt.Println("rows | user_id | username | date_of_birth |            gmail               |         created_at          ")
-    fmt.Println("-----+---------+----------+---------------+--------------------------------+----------------------------")
+	fmt.Println("-----+---------+----------+---------------+--------------------------------+----------------------------")
 	for i, v := range users {
-		fmt.Printf("%4d | %7d | %8s | %13s | %-30s | %26s\n",i+1, v.User_id, v.User_name, v.Date.Format("2006-02-01"), v.Gmail, v.Create_at)
-		
+		fmt.Printf("%4d | %7d | %8s | %13s | %-30s | %26s\n", i+1, v.User_id, v.User_name, v.Date.Format("2006-02-01"), v.Gmail, v.Create_at)
+
 	}
 }

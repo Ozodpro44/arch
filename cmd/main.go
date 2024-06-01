@@ -9,7 +9,7 @@ import (
 	"log"
 )
 
-func main()  {
+func main() {
 	cfg := config.NewConfig()
 
 	conn, err := postgres.Conn(cfg)

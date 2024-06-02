@@ -13,7 +13,7 @@ type Handlers struct {
 }
 
 func NewHandlers(UserRepo postgres.UserRepo) Handlers {
-	return Handlers{UserRepo: UserRepo}
+	return Handlers{}
 }
 
 func (h *Handlers) GetUserByUsername(UserRepo postgres.UserRepo) {
@@ -28,7 +28,10 @@ func (h *Handlers) GetUserByUsername(UserRepo postgres.UserRepo) {
 		return
 	}
 
-	fmt.Println(user.Create_at.Date())
+	fmt.Println(" user_id | username | date_of_birth |            gmail               |         created_at          ")
+	fmt.Println("---------+----------+---------------+--------------------------------+----------------------------")
+
+	fmt.Printf(" %7d | %8s | %13s | %-30s | %26s\n", user.User_id, user.User_name, user.Date.Format("2006-02-01"), user.Gmail, user.Create_at)
 
 }
 

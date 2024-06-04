@@ -16,7 +16,7 @@ func Api(UserRepo postgres.UserRepo) {
 		1.CreateUser
 		2.UpdateUser
 		3.Delete User
-		4.Get user By Username
+		4.Get User By Username
 		5.Get All users
 		0.Exit
 		`)

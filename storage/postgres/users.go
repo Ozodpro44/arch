@@ -20,7 +20,7 @@ func NewUserRepo(db *pgx.Conn) UserRepo {
 func (u *UserRepo) GetUserByUsername(ctx context.Context, username string) (models.Users, error) {
 	var user models.Users
 	query := "SELECT * FROM users WHERE username=$1"
-	err := u.db.QueryRow(ctx, query, username).Scan(&user.User_id, &user.User_name, &user.Date, &user.Gmail, &user.Create_at)
+	err := u.db.QueryRow(ctx, query, username).Scan(&user.User_id, &user.Username, &user.Date, &user.Gmail, &user.Create_at)
 	if err != nil {
 		log.Println("err on GetUsersByUsername ", err)
 		return user, err
@@ -32,7 +32,7 @@ func (u *UserRepo) GetUserByUsername(ctx context.Context, username string) (mode
 func (u *UserRepo) CreateUser(ctx context.Context, user models.Users) error {
 
 	query := "INSERT INTO users(username,gmail,date_of_birth)VALUES($1,$2,$3)"
-	_, err := u.db.Exec(ctx, query, user.User_name, user.Gmail, user.Date)
+	_, err := u.db.Exec(ctx, query, user.Username, user.Gmail, user.Date)
 	if err != nil {
 		log.Println("error on CreateUser ", err)
 		return err
@@ -77,7 +77,7 @@ func (u *UserRepo) GetAllUSers(ctx context.Context) ([]models.Users, error) {
 	}
 	for row.Next() {
 
-		err := row.Scan(&user.User_id, &user.User_name, &user.Date, &user.Gmail, &user.Create_at)
+		err := row.Scan(&user.User_id, &user.Username, &user.Date, &user.Gmail, &user.Create_at)
 		if err != nil {
 			log.Println("Error on Scan all users", err)
 			return users, err
